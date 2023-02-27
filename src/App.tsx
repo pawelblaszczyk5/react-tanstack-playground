@@ -1,1 +1,3 @@
-export const App = () => <h1>Hello world!</h1>;
+import { tw } from "typewind";
+
+export const App = () => <h1 className={tw.text_3xl}>Hello world!</h1>;
