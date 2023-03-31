@@ -7,4 +7,6 @@ export const homeRoute = new Route({
   component: lazy(() =>
     import("./Home").then((mod) => ({ default: mod.Home }))
   ),
+  onLoad: ({ signal, preload, context: { loaderClient } }) =>
+    loaderClient.getLoader({ key: "home" }).load({ signal, preload }),
 });
