@@ -6,11 +6,15 @@ import "./index.css";
 import { RouterProvider } from "@tanstack/react-router";
 import { LoaderClientProvider } from "@tanstack/react-loaders";
 import { loaderClient } from "./loader-client";
+import { ActionClientProvider } from "@tanstack/react-actions";
+import { actionClient } from "./action-client";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <LoaderClientProvider loaderClient={loaderClient}>
-      <RouterProvider router={router} />
+      <ActionClientProvider actionClient={actionClient}>
+        <RouterProvider router={router} />
+      </ActionClientProvider>
     </LoaderClientProvider>
   </React.StrictMode>
 );
