@@ -1,23 +1,16 @@
-import {
-  Outlet,
-  RouterProvider,
-  Link,
-  ReactRouter,
-  RootRoute,
-} from "@tanstack/react-router";
+import { Router, RootRoute } from "@tanstack/router";
 import { homeRoute } from "./modules/home/route-config";
 import { aboutRoute } from "./modules/about/route-config";
 import { loaderClient } from "./loader-client";
 import { Root } from "./Root";
-import { paramRoute } from "./modules/param/route-config";
 
 export const rootRoute = RootRoute.withRouterContext<{
   loaderClient: typeof loaderClient;
 }>()({ component: Root });
 
-const routeTree = rootRoute.addChildren([homeRoute, aboutRoute, paramRoute]);
+const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
 
-export const router = new ReactRouter({
+export const router = new Router({
   routeTree,
   context: {
     loaderClient,
@@ -25,7 +18,7 @@ export const router = new ReactRouter({
   defaultPreload: "intent",
 });
 
-declare module "@tanstack/react-router" {
+declare module "@tanstack/router" {
   interface Register {
     router: typeof router;
   }

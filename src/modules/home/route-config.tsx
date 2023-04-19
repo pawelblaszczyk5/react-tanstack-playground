@@ -1,4 +1,4 @@
-import { Route, lazy } from "@tanstack/react-router";
+import { Route, lazy } from "@tanstack/router";
 import { rootRoute } from "../../router";
 
 export const homeRoute = new Route({
@@ -7,6 +7,6 @@ export const homeRoute = new Route({
   component: lazy(() =>
     import("./Home").then((mod) => ({ default: mod.Home }))
   ),
-  onLoad: ({ signal, preload, context: { loaderClient } }) =>
-    loaderClient.getLoader({ key: "home" }).load({ signal, preload }),
+  loader: ({ signal, preload, context: { loaderClient } }) =>
+    loaderClient.loaders.home.load({ signal, preload }),
 });

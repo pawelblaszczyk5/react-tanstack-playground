@@ -1,8 +1,7 @@
-import { useLoaderInstance } from "@tanstack/react-loaders";
+import { homeRoute } from "./route-config";
 
 export const Home = () => {
-  const aboutLoaderInstance = useLoaderInstance({ key: "home" });
-  const text = aboutLoaderInstance.state.data;
+  const text = homeRoute.useLoader();
 
   return (
     <div>

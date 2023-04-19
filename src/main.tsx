@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { router } from "./router";
 
 import "./index.css";
-import { RouterProvider } from "@tanstack/react-router";
+import { RouterProvider } from "@tanstack/router";
 import { LoaderClientProvider } from "@tanstack/react-loaders";
 import { loaderClient } from "./loader-client";
 import { ActionClientProvider } from "@tanstack/react-actions";
