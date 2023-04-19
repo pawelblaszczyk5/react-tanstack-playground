@@ -7,6 +7,9 @@ export const aboutRoute = new Route({
   component: lazy(() =>
     import("./About").then((mod) => ({ default: mod.About }))
   ),
-  loader: ({ signal, preload, context: { loaderClient } }) =>
-    loaderClient.loaders.about.load({ signal, preload }),
+  loader: async ({ signal, preload, context: { loaderClient } }) => {
+    await loaderClient.loaders.about.load({ signal, preload });
+
+    return () => loaderClient.loaders.about.useLoader();
+  },
 });

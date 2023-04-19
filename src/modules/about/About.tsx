@@ -2,7 +2,9 @@ import { useAction } from "@tanstack/react-actions";
 import { aboutRoute } from "./route-config";
 
 export const About = () => {
-  const randomNumber = aboutRoute.useLoader();
+  const {
+    state: { data: randomNumber },
+  } = aboutRoute.useLoader()();
   const mutateRandomNumberAction = useAction({ key: "mutateRandomNumber" });
 
   return (

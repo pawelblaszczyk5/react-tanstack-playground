@@ -7,7 +7,7 @@ export const mutateRandomNumber = new Action({
     console.log("mutateRandomNumber action");
   },
   onEachSuccess: () => {
-    loaderClient.getLoader({ key: "about" }).invalidate();
+    loaderClient.loaders.about.invalidate();
   },
 });
 

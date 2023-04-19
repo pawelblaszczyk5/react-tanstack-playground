@@ -22,8 +22,9 @@ export const loaderClient = new LoaderClient({
     home: homeLoader,
   }),
   defaultRefetchOnWindowFocus: true,
-  defaultPreloadMaxAge: 15_000,
-  defaultMaxAge: 10_000,
+  defaultPreloadMaxAge: 100 * 1_000,
+  defaultMaxAge: 100 * 1_000,
+  defaultGcMaxAge: 5 * 60 * 1_000,
 });
 
 declare module "@tanstack/react-loaders" {

@@ -1,7 +1,9 @@
 import { homeRoute } from "./route-config";
 
 export const Home = () => {
-  const text = homeRoute.useLoader();
+  const {
+    state: { data: text },
+  } = homeRoute.useLoader()();
 
   return (
     <div>
