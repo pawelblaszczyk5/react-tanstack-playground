@@ -6,9 +6,6 @@ const aboutLoader = new Loader({
 
     return Math.random();
   },
-  // Uncomment these and it'll be cached more aggressively, despite being the same setting as defaults below
-  // preloadMaxAge: 15_000,
-  // maxAge: 15_000,
 });
 
 const homeLoader = new Loader({

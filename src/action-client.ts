@@ -2,8 +2,7 @@ import { Action, ActionClient } from "@tanstack/react-actions";
 import { loaderClient } from "./loader-client";
 
 export const mutateRandomNumber = new Action({
-  key: "mutateRandomNumber",
-  action: () => {
+  fn: () => {
     console.log("mutateRandomNumber action");
   },
   onEachSuccess: () => {
@@ -12,7 +11,9 @@ export const mutateRandomNumber = new Action({
 });
 
 export const actionClient = new ActionClient({
-  getActions: () => [mutateRandomNumber],
+  getActions: () => ({
+    mutateRandomNumber,
+  }),
 });
 
 declare module "@tanstack/react-actions" {
